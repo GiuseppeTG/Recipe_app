@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :foods
+  resources :general_shopping_list
   resources :recipes do
     resources :recipe_foods
   end
