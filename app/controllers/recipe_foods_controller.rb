@@ -35,7 +35,7 @@ class RecipeFoodsController < ApplicationController
     respond_to do |format|
       if @recipe_food.save
         format.html do
-          redirect_to recipe_recipe_food_url(@recipe, @recipe_food), notice: 'Recipe food was successfully created.'
+          redirect_to recipe_path(@recipe), notice: 'Recipe food was successfully created.'
         end
         format.json { render :show, status: :created, location: @recipe_food }
       else
@@ -52,7 +52,7 @@ class RecipeFoodsController < ApplicationController
     respond_to do |format|
       if @recipe_food.update(recipe_food_params)
         format.html do
-          redirect_to recipe_recipe_food_url(@recipe, @recipe_food), notice: 'Recipe food was successfully updated.'
+          redirect_to recipe_path(@recipe), notice: 'Recipe food was successfully updated.'
         end
         format.json { render :show, status: :ok, location: @recipe_food }
       else
@@ -68,7 +68,7 @@ class RecipeFoodsController < ApplicationController
     @recipe_food.destroy
 
     respond_to do |format|
-      format.html { redirect_to recipe_recipe_foods_path(@recipe), notice: 'Recipe food was successfully destroyed.' }
+      format.html { redirect_to recipe_path(@recipe), notice: 'Recipe food was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
