@@ -1,27 +1,9 @@
-<div id="<%= dom_id food %>">
-  <p>
-    <strong>Name:</strong>
-    <%= food.name %>
-  </p>
-
-  <p>
-    <strong>Measurement unit:</strong>
-    <%= food.measurement_unit %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= food.price %>
-  </p>
-
-  <p>
-    <strong>Quantity:</strong>
-    <%= food.quantity %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= food.user_id %>
-  </p>
-
-</div>
+<tr id= <%= food.id %> class="p-2 text-center">
+  <td class=food-table-cell><%=food.name %></td>
+  <td class=food-table-cell><%=food.measurement_unit %></td>
+  <td class=food-table-cell><%=food.price %></td>
+  <td class=food-table-cell><%=food.quantity %></td>
+  <td>
+    <%= button_to "Delete", food_path(food.id), method: :delete%>
+  </td>
+</tr>
