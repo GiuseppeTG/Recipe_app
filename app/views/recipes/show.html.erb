@@ -8,3 +8,5 @@
 
   <%= button_to "Destroy this recipe", @recipe, method: :delete %>
 </div>
+
+<%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), method: :new %>
