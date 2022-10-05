@@ -1,17 +1,30 @@
 <section class="public-recipes-section">
   <h1>PUBLIC RECIPES</h1>
+
   <p style="color: green"><%= notice %></p>
-  <div id="recipes">
-    <% @recipes.each do |recipe| %>
 
+  <%= link_to "New recipe", new_recipe_path, :class => "new-recipe-button" %>
 
-    
-      <%= render recipe %>
-      <p>
-        <%= link_to "Show this recipe", recipe %>
-      </p>
-    <% end %>
-  </div>
-
-  <%= link_to "New recipe", new_recipe_path %>
+    <div class="recipes-container">
+      <% @recipes.each do |recipe| %>
+      
+        <div class="recipe-container">
+          <div class="general-recipe-title">
+            <div>
+            <%= link_to recipe_path(recipe) do %>
+              <h3><%= recipe[:name] %></h3>
+              <h5><%= "By: #{recipe.user[:name]}" %></h5>
+            <%end%>
+            </div>
+            <% if can? :manage, recipe %>
+              <%= button_to "REMOVE", recipe, method: :delete, :class => "remove-button" %>
+            <% end %>
+          </div>
+          <div class="description-container">
+            <p><%= "Total price: $#{total_price_recipe(recipe)}" %></p>
+            <p><%= "Number of ingredients: #{total_ingredients_recipe(recipe)}" %></p>
+          </div>    
+        </div>
+      <% end %>
+    </div>
 </section>

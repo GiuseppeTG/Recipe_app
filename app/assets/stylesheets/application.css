@@ -21,7 +21,6 @@
 }
 
 main {
-  border: red solid 1px;
   max-width: 1440px;
   margin: auto;
   padding: 2rem;

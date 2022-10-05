@@ -22,4 +22,22 @@ module ApplicationHelper
     end
     total_ingredients
   end
+
+  def total_price_recipe(recipe)
+    total_price = 0
+    recipe_ingredients = RecipeFood.includes([:food]).where(recipe: recipe)
+    recipe_ingredients.each do |ri|
+      total_price += ri.food[:price] * ri[:quantity]
+    end
+    total_price
+  end
+
+  def total_ingredients_recipe(recipe)
+    total_ingredients = 0
+    recipe_ingredients = RecipeFood.includes([:food]).where(recipe: recipe)
+    recipe_ingredients.each do |ri|
+      total_ingredients += 1 if ri
+    end
+    total_ingredients
+  end
 end

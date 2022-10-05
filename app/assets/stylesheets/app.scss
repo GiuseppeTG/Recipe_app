@@ -72,13 +72,14 @@ nav {
 }
 
 section {
-  border: blue solid 1px;
-  max-width: 800px;
+  max-width: 1000px;
   margin: auto;
   padding: 2rem 4rem;
 
   h1 {
     font-size: 3rem;
+    color: $red;
+    margin-bottom: 2rem;
   }
 }
 
