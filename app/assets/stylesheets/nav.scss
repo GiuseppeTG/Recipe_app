@@ -42,8 +42,7 @@ nav {
   width: 100%;
 }
 
-.log-out {
-  border: black solid 1px;
+.nav-links> :last-child {
   padding: 0.5rem;
   margin-left: auto;
   cursor: pointer;
@@ -52,4 +51,23 @@ nav {
 .nav-links li a {
   text-decoration: none;
   color: black;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+  }
+}
+
+#logout-button .button_to button {
+  background: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: solid black 1px;
+  border-radius: 0.25rem;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.425);
+    transform: scale(1.1);
+  }
 }
