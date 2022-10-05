@@ -2,20 +2,39 @@
 
 <%= render @recipe %>
 
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
+<% if can? :manage, @recipe %>
+  <div> 
+    <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
 
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
-</div>
 
-<%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), method: :new %>
+  </div>
+  <div class="recipe-show-actions">
+    <%= link_to "Generate Shopping List", general_shopping_list_path %>
+    <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe), method: :new %>
+  </div>
+<%end%>
 
-<div id="recipe_foods">
-  <% @recipe_foods.each do |recipe_food| %>
-    <%= render recipe_food %>
-    <p>
-      <%= link_to "Show this recipe food", recipe_recipe_food_path(@recipe, recipe_food) %>
-    </p>
-  <% end %>
-</div>
+<table class="shop-table">
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe_foods.each do |rf| %>
+        <tr>
+          <td>
+            <%= rf.food[:name] %>
+          </td>
+          <td>
+            <%= rf[:quantity] %>
+          </td>
+          <td>
+            <%= "$ #{rf.food[:price] * rf[:quantity]}" %>
+          </td>
+        </tr>
+    <% end %>
+  </tbody>
+</table>
