@@ -18,8 +18,9 @@ nav {
   padding: 0 2rem;
   gap: 2rem;
   background-color: $yellow;
-  box-shadow: 8px 8px 16px #bebebe90,
-    -8px -8px 16px #ffffff;
+  box-shadow:
+    8px 8px 16px #bebebe90,
+    -8px -8px 16px #fff;
 }
 
 .logo-container {
@@ -42,7 +43,7 @@ nav {
   width: 100%;
 }
 
-.nav-links> :last-child {
+.nav-links > :last-child {
   padding: 0.5rem;
   margin-left: auto;
   cursor: pointer;
