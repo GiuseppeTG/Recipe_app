@@ -11,11 +11,36 @@
   </head>
 
   <body>
+  <nav>
+    <div class="logo-container">
+      <%= image_tag("cooking.png", :alt => "logo", :class => "logo") %>
+      <h2>iCOOK</h2>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <%= link_to "Public Recipes", public_recipes_path%>
+      </li>
+      <li>
+        <%= link_to "Your Recipes", recipes_path%>
+      </li>
+      <li>
+        <%= link_to "Food", foods_path%>
+      </li>
+      <li>
+        <%= link_to "Shopping List", '/general_shopping_list'%> 
+      </li>
+      <% if user_signed_in?%>
+        <li class="log-out">
+          <%= link_to "Logout", destroy_user_session_path, { method: :delete, data: { turbo:false }} %>
+        </li>
+      <% end %>      
+    </ul>
+  </nav>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <% if user_signed_in?%>
-      <%= button_to "Logout", destroy_user_session_path, { method: :delete, data: { turbo:false }} %>
-    <% end %>
+      <%= link_to "Logout", destroy_user_session_path, { method: :delete, data: { turbo:false }} %>
+    <% end %>   
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,55 @@
+@import 'variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: $poppins;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  padding: 0 2rem;
+  gap: 2rem;
+  background-color: $yellow;
+  box-shadow: 8px 8px 16px #bebebe90,
+    -8px -8px 16px #ffffff;
+}
+
+.logo-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  color: black;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  width: 100%;
+}
+
+.log-out {
+  border: black solid 1px;
+  padding: 0.5rem;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: black;
+}
