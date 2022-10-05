@@ -43,10 +43,10 @@ Style/FrozenStringLiteralComment:
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
-Layout/EndOfLine:
-   Enabled: False
 Layout/ExtraSpacing:
   AllowForAlignment: false
+Layout/EndOfLine:
+   Enabled: False
 Layout/MultilineMethodCallIndentation:
   Enabled: true
   EnforcedStyle: indented
