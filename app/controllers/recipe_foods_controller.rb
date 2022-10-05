@@ -10,6 +10,7 @@ class RecipeFoodsController < ApplicationController
   # GET /recipe_foods/1 or /recipe_foods/1.json
   def show
     @recipe = Recipe.find_by(id: params[:recipe_id])
+    @recipe_foods = RecipeFood.where(recipe: @recipe)
   end
 
   # GET /recipe_foods/new
