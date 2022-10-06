@@ -6,7 +6,8 @@ RSpec.describe Recipe, type: :model do
     @user.skip_confirmation!
     @user.save
     @food = Food.create(user: @user, name: 'meet', quantity: 5, price: 100, measurement_unit: 'lb')
-    @recipe = Recipe.create(user: @user, name: 'meet', preparation_time: 60, cooking_time: 60, description: 'Best meet ever', public: true)
+    @recipe = Recipe.create(user: @user, name: 'meet', preparation_time: 60, cooking_time: 60,
+                            description: 'Best meet ever', public: true)
   end
 
   it 'name is required' do
