@@ -1,0 +1,33 @@
+@import 'variables.scss';
+
+.foods-table {
+  width: 100%;
+  margin-top: 4rem;
+}
+
+.foods-table,
+th,
+td {
+  border: black solid 1px;
+  border-collapse: collapse;
+  padding: 0.25rem;
+}
+
+.action-cell {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: $red;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

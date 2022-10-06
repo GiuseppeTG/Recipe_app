@@ -1,25 +1,27 @@
 <p style="color: green"><%= notice %></p>
+<section class="recipes-section">
+  <h1>Recipes</h1>
 
-<h1>Recipes</h1>
+  <%= link_to "New recipe", new_recipe_path, :class => "new-recipe-button" %>
 
-<%= link_to "New recipe", new_recipe_path %>
-
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%# <%= render recipe %>
-      <div class="recipe-container">
-        <div class="recipe-title">
-          <%= link_to recipe_path(recipe) do %>
-            <h3><%= recipe[:name] %></h3>
-          <% end %> 
-          <%= button_to "Destroy this recipe", recipe, method: :delete %>
+  <div class="recipes-container">
+    <% @recipes.each do |recipe| %>
+      <%# <%= render recipe %>
+        <div class="recipe-container">
+          <div class="general-recipe-title">
+            <%= link_to recipe_path(recipe) do %>
+              <h3><%= recipe[:name] %></h3>
+            <% end %> 
+            <% if can? :manage, recipe %>
+                <%= button_to "REMOVE", recipe, method: :delete, :class => "remove-button" %>
+            <% end %>
+          </div>
+          <div class="description-container">
+            <p>
+              <%= recipe[:description] %>
+            </p>
+          </div>
         </div>
-        <div class="recipe-description-container">
-          <p>
-            <%= recipe[:description] %>
-          </p>
-        </div>
-      </div>
-  <% end %>
-</div>
-
+    <% end %>
+  </div>
+</section>
