@@ -50,3 +50,33 @@
   color: $red;
   cursor: pointer;
 }
+
+.recipe-show-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  h2 {
+    font-size: 3rem;
+    color: $red;
+    margin-bottom: 2rem;
+  }
+}
+
+.recipe-data {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.recipe-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.recipe-show-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}

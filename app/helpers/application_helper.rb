@@ -10,6 +10,8 @@ module ApplicationHelper
   def total_price(recipe_foods)
     total_price = 0
     recipe_foods.each do |rf|
+      next unless needed_ingredients(rf)
+
       total_price += needed_ingredients(rf)[:price]
     end
     total_price
