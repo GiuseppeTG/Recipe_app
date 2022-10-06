@@ -16,6 +16,7 @@
         <th>Food</th>
         <th>Quantity</th>
         <th>Price</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +30,14 @@
             </td>
             <td>
               <%= "$ #{rf.food[:price] * rf[:quantity]}" %>
+            </td>
+            <td>
+              <% if can? :manage, @recipe %>
+                <div class="action-cell">
+                  <%= button_to "REMOVE", recipe_recipe_food_path(@recipe, rf), method: :delete, :class => "action-button" %>
+                  <%= link_to "EDIT", edit_recipe_recipe_food_path(@recipe, rf), :class => "action-button" %>
+                </div>
+              <% end %>
             </td>
           </tr>
       <% end %>
