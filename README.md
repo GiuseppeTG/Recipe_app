@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Blog App
+# Recipe App
 
-> Blog that allow users to create posts, comment them, and like them.
+> App created to keep track of your favorite recipies
 
 ## Built With
 
