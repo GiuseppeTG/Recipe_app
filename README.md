@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Recipe App
+# Recipes App
 
 > App created to keep track of your favorite recipies
 
