@@ -1,0 +1,9 @@
+<tr id= <%= food.id %> class="p-2 text-center">
+  <td class=food-table-cell><%=food.name %></td>
+  <td class=food-table-cell><%=food.measurement_unit %></td>
+  <td class=food-table-cell><%="$#{food.price}" %></td>
+  <td class=food-table-cell><%=food.quantity %></td>
+  <td>
+    <%= button_to "Delete", food_path(food.id), method: :delete, :class => "remove-button"%>
+  </td>
+</tr>

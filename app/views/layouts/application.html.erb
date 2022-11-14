@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeApp1</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <% if user_signed_in?%>
+    <nav>
+      <div class="logo-container">
+        <%= image_tag("cooking.png", :alt => "logo", :class => "logo") %>
+        <h2>iCOOK</h2>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <%= link_to "Public Recipes", public_recipes_path%>
+        </li>
+        <li>
+          <%= link_to "Your Recipes", recipes_path%>
+        </li>
+        <li>
+          <%= link_to "Food", foods_path%>
+        </li>
+        <li>
+          <%= link_to "Shopping List", '/general_shopping_list'%> 
+        </li>
+        <li>
+          <div id="logout-button">
+            <%= button_to "Logout", destroy_user_session_path, { method: :delete, data: { turbo:false }}%>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  <% end %>      
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <main>
+      <%= yield %>
+    </main>
+  </body>
+</html>

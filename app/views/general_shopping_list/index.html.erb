@@ -1,0 +1,35 @@
+<section>
+  <h1>Shopping list</h1>
+  <div class= "totals-container">
+    <p><%="Amount of food items to buy: #{total_ingredients(@recipe_foods)}"%></p>
+    <p><%="Total price: $#{total_price(@recipe_foods)}"%></p>
+  </div>
+
+
+  <table class="foods-table">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe_foods.each do |rf| %>
+        <% if needed_ingredients(rf) %>
+          <tr>
+            <td>
+              <%= needed_ingredients(rf)[:name] %>
+            </td>
+            <td>
+              <%= needed_ingredients(rf)[:quantity] %>
+            </td>
+            <td>
+              <%= "$#{needed_ingredients(rf)[:price]}" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</section>
